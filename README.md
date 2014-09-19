@@ -1,31 +1,33 @@
-getting-cleaning-data-project
-=============================
-## Getting and Cleaning Data Project
+Getting and Cleaning Data: Course Project
+=========================================
 
-YoannaK
+Introduction
+------------
+This repository contains my work for the course project for the Coursera course "Getting and Cleaning data", part of the Data Science specialization.
+What follows first are my notes on the original data.
 
-Repo for the submission of the course project for the Johns Hopkins Getting and Cleaning Data course.
+About the raw data
+------------------
 
-### Overview
-This project serves to demonstrate the collection and cleaning of a tidy data set that can be used for subsequent
-analysis. A full description of the data used in this project can be found at [The UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+The features (561 of them) are unlabeled and can be found in the x_test.txt. 
+The activity labels are in the y_test.txt file.
+The test subjects are in the subject_test.txt file.
 
-[The source data for this project can be found here.](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
+The same holds for the training set.
 
-### Making Modifications to This Script
-Once you have obtained and unzipped the source files, you will need to make one modification to the R file before you can process the data.
-Note that on line 26 of run_analysis.R, you will set the path of the working directory to relect the location of the source files
-in your own directory.
+About the script and the tidy dataset
+-------------------------------------
+I created a script called run_analysis.R which will merge the test and training sets together.
+Prerequisites for this script:
 
-### Project Summary
-The following is a summary description of the project instructions
+1. the UCI HAR Dataset must be extracted and..
+2. the UCI HAR Dataset must be availble in a directory called "UCI HAR Dataset"
 
-You should create one R script called run_analysis.R that does the following. 
-1. Merges the training and the test sets to create one data set.
-2. Extracts only the measurements on the mean and standard deviation for each measurement. 
-3. Uses descriptive activity names to name the activities in the data set
-4. Appropriately labels the data set with descriptive activity names. 
-5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
+After merging testing and training, labels are added and only columns that have to do with mean and standard deviation are kept.
 
-### Additional Information
-You can find additional information about the variables, data and transformations in the CodeBook.MD file.
+Lastly, the script will create a tidy data set containing the means of all the columns per test subject and per activity.
+This tidy dataset will be written to a tab-delimited file called tidy.txt, which can also be found in this repository.
+
+About the Code Book
+-------------------
+The CodeBook.md file explains the transformations performed and the resulting data and variables.
